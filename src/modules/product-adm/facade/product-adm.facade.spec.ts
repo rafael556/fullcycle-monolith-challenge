@@ -44,4 +44,23 @@ describe('productAdmFacade test', () => {
       expect(productDb.dataValues.purchasePrice).toEqual(input.purchasePrice);
       expect(productDb.dataValues.stock).toEqual(input.stock);
   })
+
+  it('should check stock of a product', async() => {
+    await ProductModel.create({
+        id: '1',
+        name: 'product 1',
+        description: 'product 1 description',
+        purchasePrice: 10,
+        stock: 10,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+    })
+
+    const productFacade = ProductAdmFactory.create();
+
+    const result = await productFacade.checkStock({productId: '1'});
+
+    expect(result.productId).toBe('1');
+    expect(result.stock).toBe(10);
+  })
 })
