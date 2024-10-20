@@ -5,7 +5,7 @@ import { AddProductInputDto, AddProductOutputDto } from "./add-product.dto";
 
 export default class AddProductUseCase {
 
-    private _productRepository: ProductGateway;
+    private readonly _productRepository: ProductGateway;
 
     constructor(productRepository: ProductGateway) {
         this._productRepository = productRepository;

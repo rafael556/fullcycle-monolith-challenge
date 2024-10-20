@@ -12,8 +12,8 @@ export interface UseCasesProps {
 
 export default class ProductAdmFacade implements ProductAdmFacadeInterface {
 
-    private _addUsecase: UseCaseInterface;
-    private _checkStockUsecase: UseCaseInterface;
+    private readonly _addUsecase: UseCaseInterface;
+    private readonly _checkStockUsecase: UseCaseInterface;
     
     constructor(usecasesProps: UseCasesProps) {
         this._addUsecase = usecasesProps.addUseCase;

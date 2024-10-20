@@ -1,8 +1,8 @@
 import Id from "../value-object/id.value-object";
 
 export default class BaseEntity {
-    private _id: Id;
-    private _createdAt: Date;
+    private readonly _id: Id;
+    private readonly _createdAt: Date;
     private _updatedAt: Date;
 
     constructor(id?: Id) {
