@@ -4,8 +4,15 @@ import ClientGateway from "../gateway/client.gateway";
 import { ClientModel } from "./client.model";
 
 export default class ClientRepository implements ClientGateway {
-    add(client: Client): Promise<void> {
-        throw new Error('teste')
+    async add(client: Client): Promise<void> {
+        await ClientModel.create({
+            id: client.id.id,
+            name: client.name,
+            email: client.email,
+            address: client.address,
+            createdAt: client.createdAt,
+            updatedAt: client.updatedAt
+        })
     }
 
     async find(id: string): Promise<Client> {
