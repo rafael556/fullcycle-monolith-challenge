@@ -33,9 +33,11 @@ describe("invoice repository test", () => {
       document: "doc 1",
       address: new Address({
         street: "st1",
-        number: 1,
+        number: '1',
         city: "city 1",
         zipcode: "zip 1",
+        complement: 'N/A',
+        state: 'RJ'
       }),
       items: [
         new InvoiceItems({
@@ -62,6 +64,8 @@ describe("invoice repository test", () => {
     expect(result.dataValues.number).toEqual(invoice.address.number);
     expect(result.dataValues.city).toEqual(invoice.address.city);
     expect(result.dataValues.zipcode).toEqual(invoice.address.zipcode);
+    expect(result.dataValues.complement).toEqual(invoice.address.complement);
+    expect(result.dataValues.state).toEqual(invoice.address.state);
 
     // Verificação dos itens da fatura
     expect(result.dataValues.items).toHaveLength(invoice.items.length);
@@ -83,9 +87,11 @@ describe("invoice repository test", () => {
         name: "invoice 1",
         document: "doc 1",
         street: "st1",
-        number: 1,
+        number: '1',
         city: "city 1",
         zipcode: "zip 1",
+        complement: 'N/A',
+        state: 'RJ',
         items: [
           {
             id: '1',
@@ -116,9 +122,11 @@ describe("invoice repository test", () => {
         expect(result.document).toEqual("doc 1");
     
         expect(result.address.street).toEqual("st1");
-        expect(result.address.number).toEqual(1);
+        expect(result.address.number).toEqual('1');
         expect(result.address.city).toEqual("city 1");
         expect(result.address.zipcode).toEqual("zip 1");
+        expect(result.address.complement).toEqual("N/A");
+        expect(result.address.state).toEqual("RJ");
     
         expect(result.items).toHaveLength(2);
     

@@ -17,6 +17,8 @@ export default class InvoiceRepository implements InvoiceGateway {
         number: entity.address.number,
         city: entity.address.city,
         zipcode: entity.address.zipcode,
+        complement: entity.address.complement,
+        state: entity.address.state,
         items: entity.items.map((item) => ({
           id: item.id.id,
           name: item.name,
@@ -59,6 +61,8 @@ export default class InvoiceRepository implements InvoiceGateway {
         number: invoiceResult.dataValues.number,
         city: invoiceResult.dataValues.city,
         zipcode: invoiceResult.dataValues.zipcode,
+        complement: invoiceResult.dataValues.complement,
+        state: invoiceResult.dataValues.state,
       }),
       items: invoiceItems,
       createdAt: invoiceResult.dataValues.createdAt,

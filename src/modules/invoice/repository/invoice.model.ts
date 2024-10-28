@@ -22,10 +22,16 @@ export default class InvoiceModel extends Model {
     street: string;
 
     @Column({allowNull: false})
-    number: number;
+    number: string;
 
     @Column({allowNull: false})
     zipcode: string;
+
+    @Column({allowNull: false})
+    complement: string;
+
+    @Column({allowNull: false})
+    state: string;
 
     @Column({allowNull: false})
     city: string;
