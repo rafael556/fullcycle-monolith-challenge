@@ -24,7 +24,7 @@ export interface FindInvoiceFacadeInputDTO {
   }
 
   export interface GenerateInvoiceFacadeInputDto {
-    id: string;
+    id?: string;
     name: string;
     document: string;
     street: string;

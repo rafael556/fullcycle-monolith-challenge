@@ -28,7 +28,13 @@ describe('client repository test', () => {
             id: new Id('1'),
             name: 'client 1',
             email: 'x@x.com',
-            address: 'address 1'
+            document: "0000",
+            city: "city",
+            complement: "",
+            number: "1",
+            state: "RJ",
+            street: "st1",
+            zipCode: "000",
         });
 
         const repository = new ClientRepository();
@@ -39,7 +45,7 @@ describe('client repository test', () => {
         expect(result.dataValues.id).toEqual(client.id.id);
         expect(result.dataValues.name).toEqual(client.name);
         expect(result.dataValues.email).toEqual(client.email);
-        expect(result.dataValues.address).toEqual(client.address);
+        expect(result.dataValues.street).toEqual(client.street);
     })
 
     it('should find a client', async () => {
@@ -48,6 +54,13 @@ describe('client repository test', () => {
             name: 'client 1',
             email: 'email@1.com',
             address: 'address',
+            document: "0000",
+            city: "city",
+            complement: "",
+            number: "1",
+            state: "RJ",
+            street: "st1",
+            zipCode: "000",
             createdAt: new Date(),
             updatedAt: new Date()
         });
@@ -58,6 +71,6 @@ describe('client repository test', () => {
         expect(result.id.id).toEqual(client.dataValues.id);
         expect(result.name).toEqual(client.dataValues.name);
         expect(result.email).toEqual(client.dataValues.email);
-        expect(result.address).toEqual(client.dataValues.address);
+        expect(result.street).toEqual(client.dataValues.street);
     })
 })
