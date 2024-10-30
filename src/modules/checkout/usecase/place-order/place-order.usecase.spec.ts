@@ -260,7 +260,6 @@ describe("place order use case unit test", () => {
 
       const mockCheckoutRepository: CheckoutGateway = {
         addOrder: jest.fn(),
-        findOrder: jest.fn(),
       };
 
       const mockInvoiceFacade: InvoiceFacadeInterface = {

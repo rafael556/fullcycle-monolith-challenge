@@ -1,4 +1,5 @@
-import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Column, ForeignKey, Model, PrimaryKey, Table } from "sequelize-typescript";
+import OrderModel from "./order.model";
 
 @Table({
     tableName: "products",
@@ -17,6 +18,10 @@ export default class ProductModel extends Model {
 
     @Column({allowNull: false})
     salesPrice: number;
+
+    @ForeignKey(() => OrderModel)
+    @Column({ allowNull: false })
+    orderId: string;
 
     @Column({allowNull: false})
     createdAt: Date;
