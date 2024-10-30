@@ -5,7 +5,7 @@ import OrderModel from "./order.model";
     tableName: "products",
     timestamps: false,
   })
-export default class ProductModel extends Model {
+export class ProductModel extends Model {
     @PrimaryKey
     @Column({allowNull: false})
     id: string;
@@ -16,11 +16,14 @@ export default class ProductModel extends Model {
     @Column({allowNull: false})
     description: string;
 
-    @Column({allowNull: false})
+    @Column({allowNull: true})
     salesPrice: number;
 
+    @Column({allowNull: true})
+    stock: number;
+
     @ForeignKey(() => OrderModel)
-    @Column({ allowNull: false })
+    @Column({ allowNull: true })
     orderId: string;
 
     @Column({allowNull: false})

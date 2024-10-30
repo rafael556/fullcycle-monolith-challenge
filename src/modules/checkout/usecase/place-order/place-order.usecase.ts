@@ -80,7 +80,9 @@ export default class PlaceOrderUseCase implements UseCaseInterface {
         : null;
 
         payment.status === 'approved' && order.approve();
-        this.checkoutRepository.addOrder(order);
+        console.log(order);
+        
+        await this.checkoutRepository.addOrder(order);
 
     return {
       id: order.id.id,
