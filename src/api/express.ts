@@ -14,12 +14,14 @@ import { ProductModel as CheckoutProductModel } from "../modules/checkout/reposi
 import ProductModel from "../modules/store-catalog/repository/product.model";
 import { clientRoute } from "../modules/client-adm/api/client-adm.route";
 import { productRoute } from "../modules/product-adm/api/product-adm.route";
+import { invoiceRoute } from "../modules/invoice/api/invoice.route";
 
 export const app: Express = express();
 app.use(express.json());
 app.use("/checkout", checkoutRoute);
 app.use("/clients", clientRoute);
 app.use("/products", productRoute);
+app.use("/invoice", invoiceRoute);
 
 let sequelize: Sequelize;
 let migration: Umzug<any>;
