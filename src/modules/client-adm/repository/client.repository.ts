@@ -24,6 +24,10 @@ export default class ClientRepository implements ClientGateway {
     async find(id: string): Promise<Client> {
         const client = await ClientModel.findOne({where: {id}});
 
+        if(!client) {
+            throw new Error('Client not found');
+        }
+
         return new Client({
             id: new Id(client.dataValues.id),
             name: client.dataValues.name,

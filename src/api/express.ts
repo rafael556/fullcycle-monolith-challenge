@@ -12,10 +12,12 @@ import { ClientModel } from "../modules/client-adm/repository/client.model";
 import { ProductModel as ProductAdmProductModel } from "../modules/product-adm/repository/product.model";
 import { ProductModel as CheckoutProductModel } from "../modules/checkout/repository/product.model";
 import ProductModel from "../modules/store-catalog/repository/product.model";
+import { clientRoute } from "../modules/client-adm/api/client-adm.route";
 
 export const app: Express = express();
 app.use(express.json());
 app.use("/checkout", checkoutRoute);
+app.use("/clients", clientRoute);
 
 let sequelize: Sequelize;
 let migration: Umzug<any>;
