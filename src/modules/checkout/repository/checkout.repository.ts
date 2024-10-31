@@ -1,7 +1,6 @@
 import Order from "../domain/order.entity";
 import CheckoutGateway from "../gateway/checkout.gateway";
 import OrderModel from "./order.model";
-import { ProductModel } from "./product.model";
 
 export default class CheckoutRepository implements CheckoutGateway {
   async addOrder(order: Order): Promise<void> {
